@@ -1,0 +1,62 @@
+{
+  "documents": [
+    {
+      "id": "doc-day01",
+      "title": "系统服务器部署与运维",
+      "sourceFileName": "day01_系统服务器部署与运维.pdf",
+      "rawText": "第一章 Linux 基础与环境准备\n安装基础工具并理解目录结构。\n第二章 服务部署流程\n掌握从拉取代码到启动服务的步骤。\n第三章 运维排障与监控\n定位常见错误并建立监控意识。",
+      "createdAt": "2026-04-09T00:00:00.000Z"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch-1",
+      "documentId": "doc-day01",
+      "title": "第一章 Linux 基础与环境准备",
+      "order": 1,
+      "content": "安装基础工具并理解目录结构，明确权限模型与常见命令。",
+      "coreConcepts": ["目录结构", "文件权限", "环境变量"],
+      "keyCommands": [
+        { "command": "pwd", "desc": "查看当前路径" },
+        { "command": "ls -al", "desc": "查看目录详细信息" },
+        { "command": "chmod 755 <path>", "desc": "修改文件权限" }
+      ],
+      "steps": ["准备服务器账号", "安装常用工具", "校验权限与目录规范"],
+      "commonMistakes": ["直接用 root 操作生产环境", "权限设置过宽导致安全风险"],
+      "feynmanExplanation": "把服务器想成一栋楼，目录是房间，权限是门禁；先把门禁和路径搞清楚，后面的部署才不会走错门。"
+    },
+    {
+      "id": "ch-2",
+      "documentId": "doc-day01",
+      "title": "第二章 服务部署流程",
+      "order": 2,
+      "content": "掌握从拉取代码、安装依赖、配置环境变量到启动服务的闭环。",
+      "coreConcepts": ["部署闭环", "环境配置", "启动验证"],
+      "keyCommands": [
+        { "command": "git pull", "desc": "拉取最新代码" },
+        { "command": "npm install", "desc": "安装依赖" },
+        { "command": "npm run start", "desc": "启动服务" }
+      ],
+      "steps": ["拉取代码", "安装依赖", "注入配置", "启动并验活"],
+      "commonMistakes": ["环境变量缺失", "端口冲突未检查"],
+      "feynmanExplanation": "部署像做菜：先备料（代码和依赖），再下锅（启动服务），最后尝味道（健康检查）。漏一步就可能翻车。"
+    },
+    {
+      "id": "ch-3",
+      "documentId": "doc-day01",
+      "title": "第三章 运维排障与监控",
+      "order": 3,
+      "content": "定位服务异常，理解日志、指标和告警的协作关系。",
+      "coreConcepts": ["日志定位", "监控指标", "告警响应"],
+      "keyCommands": [
+        { "command": "tail -f app.log", "desc": "实时查看日志" },
+        { "command": "top", "desc": "观察进程资源占用" },
+        { "command": "netstat -ano", "desc": "排查端口与连接" }
+      ],
+      "steps": ["复现问题", "看日志定位", "看资源指标", "验证修复"],
+      "commonMistakes": ["只看错误堆栈不看上下文", "没有留修复记录"],
+      "feynmanExplanation": "排障像医生看病：先问症状（报错），再做检查（日志和指标），最后开药复查（修复并验证）。"
+    }
+  ],
+  "quizSets": []
+}
