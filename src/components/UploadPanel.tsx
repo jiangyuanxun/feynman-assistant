@@ -9,7 +9,7 @@ export type UploadInput = {
 };
 
 type UploadPanelProps = {
-  onStart: (input: UploadInput) => Promise<void>;
+  onStart?: (input: UploadInput) => Promise<void>;
   disabled?: boolean;
 };
 
@@ -49,6 +49,10 @@ export function UploadPanel({ onStart, disabled = false }: UploadPanelProps) {
         size: selectedFile.size,
         type: selectedFile.type,
       });
+    }
+
+    if (!onStart) {
+      return;
     }
 
     await onStart({
